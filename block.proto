@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package com.unblock.proto;
+option java_package = "com.unblock.proto";
+option java_multiple_files = true;
+
+message Block {
+
+    string id = 1;
+
+    string name = 2;
+
+    message Bounds {
+        message Point {
+            int32 x = 1;
+
+            int32 y = 2;
+        }
+
+        repeated Point points = 1;
+    }
+
+    Bounds bounds = 3;
+}
