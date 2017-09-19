@@ -5,10 +5,17 @@ package com.unblock.proto;
 import 'block.proto';
 
 option java_package = "com.unblock.proto";
-option java_multiple_files = true;
 
 message GetNeighborhoodRequest {
     string id = 1;
+}
+
+message ListNeighborhoodResponse {
+    repeated com.unblock.proto.Neighborhood neighborhoods = 1;
+}
+
+message CreateNeighborhoodRequest {
+    string name = 1;
 }
 
 message Neighborhood {
