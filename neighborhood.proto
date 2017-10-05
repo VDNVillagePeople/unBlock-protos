@@ -24,4 +24,6 @@ message Neighborhood {
     string name = 2;
 
     repeated com.unblock.proto.Block blocks = 3;
+
+    string image = 4;
 }
