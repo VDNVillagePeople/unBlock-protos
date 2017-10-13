@@ -6,10 +6,6 @@ import 'block.proto';
 
 option java_package = "com.unblock.proto";
 
-message GetNeighborhoodRequest {
-    string id = 1;
-}
-
 message ListNeighborhoodResponse {
     repeated com.unblock.proto.Neighborhood neighborhoods = 1;
 }

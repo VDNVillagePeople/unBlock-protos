@@ -2,23 +2,35 @@ syntax = "proto3";
 
 package com.unblock.proto;
 option java_package = "com.unblock.proto";
-option java_multiple_files = true;
 
-message Block {
-
+message UpdateBlockBoundsRequest {
     string id = 1;
+
+    Bounds bounds = 2;
+}
+
+message CreateBlockRequest {
+    string neighborhoodId = 1;
 
     string name = 2;
 
-    message Bounds {
-        message Point {
-            float x = 1;
+    Bounds bounds = 4;
+}
 
-            float y = 2;
-        }
+message Bounds {
+    message Point {
+        float x = 1;
 
-        repeated Point points = 1;
+        float y = 2;
     }
+
+    repeated Point points = 1;
+}
+
+message Block {
+    string id = 1;
+
+    string name = 2;
 
     Bounds bounds = 3;
 }
