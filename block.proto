@@ -9,6 +9,14 @@ message UpdateBlockBoundsRequest {
     Bounds bounds = 2;
 }
 
+message UpdateBlockInfoRequest {
+    string id = 1;
+
+    string neighborhood_id = 2;
+
+    string name = 3;
+}
+
 message CreateBlockRequest {
     string neighborhoodId = 1;
 

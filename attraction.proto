@@ -1,0 +1,44 @@
+syntax = "proto3";
+
+package com.unblock.proto;
+option java_package = "com.unblock.proto";
+
+message UpdateAttractionInfoRequest {
+    string id = 1;
+
+    string neighborhood_id = 2;
+
+    string blockId = 3;
+
+    string name = 4;
+}
+
+message UpdateAttractionLocationRequest {
+    string id = 1;
+
+    float x = 2;
+
+    float y = 3;
+}
+
+message CreateAttractionRequest {
+    string neighborhood_id = 1;
+
+    string blockId = 2;
+
+    string name = 3;
+
+    float x = 4;
+
+    float y = 5;
+}
+
+message Attraction {
+    string id = 1;
+
+    string name = 2;
+
+    float x = 3;
+
+    float y = 4;
+}
