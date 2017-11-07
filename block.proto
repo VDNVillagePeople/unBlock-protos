@@ -12,7 +12,7 @@ message UpdateBlockBoundsRequest {
 message UpdateBlockInfoRequest {
     string id = 1;
 
-    string neighborhood_id = 2;
+    string neighborhoodId = 2;
 
     string name = 3;
 }

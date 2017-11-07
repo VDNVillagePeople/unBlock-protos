@@ -6,7 +6,7 @@ option java_package = "com.unblock.proto";
 message UpdateAttractionInfoRequest {
     string id = 1;
 
-    string neighborhood_id = 2;
+    string neighborhoodId = 2;
 
     string blockId = 3;
 
@@ -22,7 +22,7 @@ message UpdateAttractionLocationRequest {
 }
 
 message CreateAttractionRequest {
-    string neighborhood_id = 1;
+    string neighborhoodId = 1;
 
     string blockId = 2;
 
