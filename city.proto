@@ -2,13 +2,9 @@ syntax = "proto3";
 
 package com.unblock.proto;
 
-import 'neighborhood.proto';
+import "neighborhood.proto";
 
 option java_package = "com.unblock.proto";
-
-message ListCitiesResponse {
-    repeated City cities = 1;
-}
 
 message CreateCityRequest {
     message CreateCityInfo {
@@ -16,6 +12,10 @@ message CreateCityRequest {
     }
 
     CreateCityInfo info = 1;
+}
+
+message ListCitiesResponse {
+    repeated City cities = 1;
 }
 
 message UpdateCityInfoRequest {

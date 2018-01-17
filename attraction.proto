@@ -9,10 +9,6 @@ message AttractionLocation {
     float y = 2;
 }
 
-message ListAttractionsResponse {
-    repeated Attraction attractions = 1;
-}
-
 message CreateAttractionRequest {
     string blockId = 1;
 
@@ -27,8 +23,12 @@ message CreateAttractionRequest {
     CreateAttractionInfo info = 2;
 }
 
+message ListAttractionsResponse {
+    repeated Attraction attractions = 1;
+}
+
 message UpdateAttractionInfoRequest {
-    string blockId = 1;
+    string id = 1;
 
     message UpdateAttractionInfo {
         string name = 1;

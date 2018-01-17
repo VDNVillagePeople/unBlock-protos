@@ -7,10 +7,6 @@ import "attraction.proto";
 
 option java_package = "com.unblock.proto";
 
-message ListBlocksResponse {
-    repeated Block blocks = 1;
-}
-
 message CreateBlockRequest {
     string neighborhoodId = 1;
 
@@ -21,6 +17,10 @@ message CreateBlockRequest {
     }
 
     CreateBlockInfo info = 2;
+}
+
+message ListBlocksResponse {
+    repeated Block blocks = 1;
 }
 
 message UpdateBlockInfoRequest {
@@ -45,6 +45,16 @@ message UpdateBlockStatusRequest {
     BlockStatus status = 2;
 }
 
+message UpdateBlockBoundsRequest {
+    string id = 1;
+
+    message UpdateBlockBounds {
+        com.unblock.proto.Bounds bounds = 1;
+    }
+
+    UpdateBlockBounds update = 2;
+}
+
 message AssignBlockToNeighborhoodRequest {
     string id = 1;
 
@@ -58,7 +68,7 @@ message Block {
 
     string neighborhoodId = 3;
 
-    string name = 5;
+    string name = 4;
 
     com.unblock.proto.Bounds bounds = 5;
 
