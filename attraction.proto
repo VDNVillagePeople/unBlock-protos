@@ -3,42 +3,76 @@ syntax = "proto3";
 package com.unblock.proto;
 option java_package = "com.unblock.proto";
 
+message AttractionLocation {
+    float x = 1;
+
+    float y = 2;
+}
+
+message ListAttractionsResponse {
+    repeated Attraction attractions = 1;
+}
+
+message CreateAttractionRequest {
+    string blockId = 1;
+
+    message CreateAttractionInfo {
+        string name = 1;
+
+        AttractionLocation location = 2;
+
+        string description = 3;
+    }
+
+    CreateAttractionInfo info = 2;
+}
+
 message UpdateAttractionInfoRequest {
-    string id = 1;
+    string blockId = 1;
 
-    string neighborhoodId = 2;
+    message UpdateAttractionInfo {
+        string name = 1;
 
-    string blockId = 3;
+        string description = 2;
+    }
 
-    string name = 4;
+    UpdateAttractionInfo info = 2;
 }
 
 message UpdateAttractionLocationRequest {
     string id = 1;
 
-    float x = 2;
-
-    float y = 3;
+    AttractionLocation location = 2;
 }
 
-message CreateAttractionRequest {
-    string neighborhoodId = 1;
+message AssignAttractionToBlockRequest {
+    string id = 1;
 
     string blockId = 2;
+}
 
-    string name = 3;
+enum AttractionStatus {
+    ATTRACTION_STATUS_UNSPECIFIED = 0;
+    ATTRACTION_LIVE = 1;
+    ATTRACTION_DISABLED = 2;
+}
 
-    float x = 4;
+message UpdateAttractionStatusRequest {
+    string id = 1;
 
-    float y = 5;
+    AttractionStatus status = 2;
 }
 
 message Attraction {
     string id = 1;
 
-    string name = 2;
+    AttractionStatus status = 2;
 
-    float x = 3;
+    string blockId = 3;
 
-    float y = 4;
+    string name = 4;
+
+    string description = 5;
+
+    AttractionLocation location = 6;
 }

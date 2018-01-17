@@ -6,20 +6,56 @@ import 'block.proto';
 
 option java_package = "com.unblock.proto";
 
-message ListNeighborhoodResponse {
-    repeated com.unblock.proto.Neighborhood neighborhoods = 1;
+message ListNeighborhoodsResponse {
+    repeated Neighborhood neighborhoods = 1;
 }
 
 message CreateNeighborhoodRequest {
-    string name = 1;
+    string cityId = 1;
+
+    message CreateNeighborhoodInfo {
+        string name = 1;
+    }
+
+    CreateNeighborhoodInfo info = 2;
+}
+
+message UpdateNeighborhoodInfoRequest {
+    string id = 1;
+
+    message UpdateNeighborhoodInfo {
+        string name = 1;
+    }
+
+    UpdateNeighborhoodInfo info = 2;
+}
+
+enum NeighborhoodStatus {
+    NEIGHBORHOOD_STATUS_UNSPECIFIED = 0;
+    NEIGHBORHOOD_LIVE = 1;
+    NEIGHBORHOOD_DISABLED = 2;
+}
+
+message UpdateNeighborhoodStatusRequest {
+    string id = 1;
+
+    NeighborhoodStatus status = 2;
+}
+
+message AssignNeighborhoodToCityRequest {
+    string id = 1;
+
+    string cityId = 2;
 }
 
 message Neighborhood {
     string id = 1;
 
-    string name = 2;
+    NeighborhoodStatus status = 2;
 
-    repeated com.unblock.proto.Block blocks = 3;
+    string cityId = 3;
 
-    string image = 4;
+    string name = 4;
+
+    repeated com.unblock.proto.Block blocks = 5;
 }

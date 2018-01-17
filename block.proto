@@ -1,44 +1,66 @@
 syntax = "proto3";
 
 package com.unblock.proto;
+
+import "bounds.proto";
+import "attraction.proto";
+
 option java_package = "com.unblock.proto";
 
-message UpdateBlockBoundsRequest {
-    string id = 1;
-
-    Bounds bounds = 2;
-}
-
-message UpdateBlockInfoRequest {
-    string id = 1;
-
-    string neighborhoodId = 2;
-
-    string name = 3;
+message ListBlocksResponse {
+    repeated Block blocks = 1;
 }
 
 message CreateBlockRequest {
     string neighborhoodId = 1;
 
-    string name = 2;
+    message CreateBlockInfo {
+        string name = 1;
 
-    Bounds bounds = 4;
-}
-
-message Bounds {
-    message Point {
-        float x = 1;
-
-        float y = 2;
+        com.unblock.proto.Bounds bounds = 2;
     }
 
-    repeated Point points = 1;
+    CreateBlockInfo info = 2;
+}
+
+message UpdateBlockInfoRequest {
+    string id = 1;
+
+    message UpdateBlockInfo {
+        string name = 1;
+    }
+
+    UpdateBlockInfo info = 2;
+}
+
+enum BlockStatus {
+    BLOCK_STATUS_UNSPECIFIED = 0;
+    BLOCK_LIVE = 1;
+    BLOCK_DISABLED = 2;
+}
+
+message UpdateBlockStatusRequest {
+    string id = 1;
+
+    BlockStatus status = 2;
+}
+
+message AssignBlockToNeighborhoodRequest {
+    string id = 1;
+
+    string neighborhoodId = 2;
 }
 
 message Block {
     string id = 1;
 
-    string name = 2;
+    BlockStatus status = 2;
 
-    Bounds bounds = 3;
+    string neighborhoodId = 3;
+
+    string name = 5;
+
+    com.unblock.proto.Bounds bounds = 5;
+
+    repeated com.unblock.proto.Attraction attractions = 6;
 }

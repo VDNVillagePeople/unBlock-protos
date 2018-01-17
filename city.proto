@@ -1,0 +1,51 @@
+syntax = "proto3";
+
+package com.unblock.proto;
+
+import 'neighborhood.proto';
+
+option java_package = "com.unblock.proto";
+
+message ListCitiesResponse {
+    repeated City cities = 1;
+}
+
+message CreateCityRequest {
+    message CreateCityInfo {
+        string name = 1;
+    }
+
+    CreateCityInfo info = 1;
+}
+
+message UpdateCityInfoRequest {
+    string id = 1;
+
+    message UpdateCityInfo {
+        string name = 1;
+    }
+
+    UpdateCityInfo info = 2;
+}
+
+enum CityStatus {
+    CITY_STATUS_UNSPECIFIED = 0;
+    CITY_LIVE = 1;
+    CITY_DISABLED = 2;
+}
+
+message UpdateCityStatusRequest {
+    string id = 1;
+
+    CityStatus status = 2;
+}
+
+message City {
+    string id = 1;
+
+    CityStatus status = 2;
+
+    string name = 3;
+
+    repeated com.unblock.proto.Neighborhood neighborhoods = 4;
+}
