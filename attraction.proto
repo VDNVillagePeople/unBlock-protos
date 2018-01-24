@@ -23,10 +23,6 @@ message CreateAttractionRequest {
     CreateAttractionInfo info = 2;
 }
 
-message ListAttractionsResponse {
-    repeated Attraction attractions = 1;
-}
-
 message UpdateAttractionInfoRequest {
     string id = 1;
 
