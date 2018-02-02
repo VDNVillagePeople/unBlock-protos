@@ -1,0 +1,50 @@
+syntax = "proto3";
+
+package com.unblock.proto;
+option java_package = "com.unblock.proto";
+
+message CreateUserRequest {
+    message CreateUserInfo {
+        string username = 1;
+
+        string password = 2;
+
+        string email = 3;
+    }
+
+    CreateUserInfo info = 1;
+}
+
+message ListUsersResponse {
+    repeated User users = 1;
+}
+
+message UpdateUserInfoRequest {
+    string id = 1;
+
+    message UpdateUserInfo {
+        string username = 1;
+
+        string email = 2;
+    }
+
+    UpdateUserInfo info = 2;
+}
+
+message UpdateUserPasswordRequest {
+    string id = 1;
+
+    message UpdateUserInfo {
+        string password = 1;
+    }
+
+    UpdateUserInfo info = 2;
+}
+
+message User {
+    string id = 1;
+
+    string username = 2;
+
+    string email = 3;
+}
