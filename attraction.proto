@@ -24,7 +24,7 @@ message CreateAttractionRequest {
 }
 
 message ListAttractionsResponse {
-    repeated Attraction blocks = 1;
+    repeated Attraction attractions = 1;
 }
 
 message UpdateAttractionInfoRequest {
