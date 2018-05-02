@@ -18,6 +18,8 @@ message CreateAttractionRequest {
         AttractionLocation location = 2;
 
         string description = 3;
+
+        string googlePlaceId = 4;
     }
 
     CreateAttractionInfo info = 2;
@@ -75,4 +77,6 @@ message Attraction {
     string description = 5;
 
     AttractionLocation location = 6;
+
+    string googlePlaceId = 7;
 }

@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package com.unblock.proto;
+option java_package = "com.unblock.proto";
+
+message CheckIn {
+    string checkinId = 1;
+
+    string attractionId = 2;
+
+    string userId = 3;
+}
+
+message CreateCheckInRequest {
+    string attractionId = 1;
+
+    string userId = 2;
+}
+
+message RemoveCheckInRequest {
+    string checkinId = 1;
+}

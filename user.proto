@@ -11,7 +11,7 @@ message CreateUserRequest {
 
         string email = 3;
 
-        Level level = 4;
+        UserLevel level = 4;
     }
 
     CreateUserInfo info = 1;
@@ -29,7 +29,7 @@ message UpdateUserInfoRequest {
 
         string email = 2;
 
-        Level level = 3;
+        UserLevel level = 3;
     }
 
     UpdateUserInfo info = 2;
@@ -45,7 +45,7 @@ message UpdateUserPasswordRequest {
     UpdateUserInfo info = 2;
 }
 
-enum Level {
+enum UserLevel {
     LEVEL_UNSPECIFIED = 0;
     DEFAULT = 1;
     ADMIN = 2;
@@ -58,5 +58,5 @@ message User {
 
     string email = 3;
 
-    Level level = 4;
+    UserLevel level = 4;
 }
