@@ -9,6 +9,8 @@ option java_package = "com.unblock.proto";
 message CreateCityRequest {
     message CreateCityInfo {
         string name = 1;
+
+        string imageFilename = 2;
     }
 
     CreateCityInfo info = 1;
@@ -23,6 +25,8 @@ message UpdateCityInfoRequest {
 
     message UpdateCityInfo {
         string name = 1;
+
+        string imageFilename = 2;
     }
 
     UpdateCityInfo info = 2;
@@ -48,4 +52,6 @@ message City {
     string name = 3;
 
     repeated com.unblock.proto.Neighborhood neighborhoods = 4;
+
+    string imageFilename = 5;
 }
