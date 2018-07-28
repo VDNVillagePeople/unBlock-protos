@@ -3,6 +3,8 @@ syntax = "proto3";
 package com.unblock.proto;
 
 import "neighborhood.proto";
+import "bounds.proto";
+import "point.proto";
 
 option java_package = "com.unblock.proto";
 
@@ -45,6 +47,18 @@ message UpdateCityStatusRequest {
     CityStatus status = 2;
 }
 
+message UpdateCityCenterRequest {
+    string id = 1;
+
+    com.unblock.proto.Point center = 2;
+}
+
+message UpdateCityBoundsRequest {
+    string id = 1;
+
+    com.unblock.proto.Bounds bounds = 2;
+}
+
 message City {
     string id = 1;
 
@@ -55,4 +69,8 @@ message City {
     repeated com.unblock.proto.Neighborhood neighborhoods = 4;
 
     string imageFilename = 5;
+
+    com.unblock.proto.Point center = 6;
+
+    com.unblock.proto.Bounds bounds = 7;
 }

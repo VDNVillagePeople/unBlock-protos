@@ -3,11 +3,7 @@ syntax = "proto3";
 package com.unblock.proto;
 option java_package = "com.unblock.proto";
 
-message AttractionLocation {
-    float x = 1;
-
-    float y = 2;
-}
+import "point.proto";
 
 message CreateAttractionRequest {
     string blockId = 1;
@@ -15,7 +11,7 @@ message CreateAttractionRequest {
     message CreateAttractionInfo {
         string name = 1;
 
-        AttractionLocation location = 2;
+        com.unblock.proto.Point location = 2;
 
         string description = 3;
 
@@ -44,7 +40,7 @@ message UpdateAttractionInfoRequest {
 message UpdateAttractionLocationRequest {
     string id = 1;
 
-    AttractionLocation location = 2;
+    com.unblock.proto.Point location = 2;
 }
 
 message AssignAttractionToBlockRequest {
@@ -76,7 +72,7 @@ message Attraction {
 
     string description = 5;
 
-    AttractionLocation location = 6;
+    com.unblock.proto.Point location = 6;
 
     string googlePlaceId = 7;
 }

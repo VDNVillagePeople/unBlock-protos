@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package com.unblock.proto;
+
+option java_package = "com.unblock.proto";
+
+message Point {
+    float x = 1;
+
+    float y = 2;
+}

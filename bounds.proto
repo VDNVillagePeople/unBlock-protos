@@ -4,12 +4,8 @@ package com.unblock.proto;
 
 option java_package = "com.unblock.proto";
 
+import "point.proto";
+
 message Bounds {
-    message Point {
-        float x = 1;
-
-        float y = 2;
-    }
-
-    repeated Point points = 1;
+    repeated com.unblock.proto.Point points = 1;
 }
