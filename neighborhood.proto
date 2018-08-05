@@ -2,6 +2,7 @@ syntax = "proto3";
 
 package com.unblock.proto;
 
+import "bounds.proto";
 import "block.proto";
 
 option java_package = "com.unblock.proto";
@@ -42,6 +43,16 @@ message UpdateNeighborhoodStatusRequest {
     NeighborhoodStatus status = 2;
 }
 
+message UpdateNeighborhoodBoundsRequest {
+    string id = 1;
+
+    message UpdateNeighborhoodBounds {
+        com.unblock.proto.Bounds bounds = 1;
+    }
+
+    UpdateNeighborhoodBounds update = 2;
+}
+
 message AssignNeighborhoodToCityRequest {
     string id = 1;
 
@@ -58,4 +69,6 @@ message Neighborhood {
     string name = 4;
 
     repeated com.unblock.proto.Block blocks = 5;
+
+    com.unblock.proto.Bounds bounds = 6;
 }
