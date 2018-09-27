@@ -3,6 +3,7 @@ syntax = "proto3";
 package com.unblock.proto;
 option java_package = "com.unblock.proto";
 
+import "google_place.proto";
 import "point.proto";
 
 message CreateAttractionRequest {
@@ -14,8 +15,6 @@ message CreateAttractionRequest {
         com.unblock.proto.Point location = 2;
 
         string description = 3;
-
-        string googlePlaceId = 4;
     }
 
     CreateAttractionInfo info = 2;
@@ -73,6 +72,24 @@ message Attraction {
     string description = 5;
 
     com.unblock.proto.Point location = 6;
+}
 
-    string googlePlaceId = 7;
+message CreateAdminAttractionRequest {
+    string blockId = 1;
+
+    message CreateAdminAttractionInfo {
+        string googlePlaceId = 1;
+    }
+
+    CreateAdminAttractionInfo info = 2;
+}
+
+message ListAdminAttractionsResponse {
+    repeated AdminAttraction adminAttractions = 1;
+}
+
+message AdminAttraction {
+    Attraction attraction = 1;
+
+    com.unblock.proto.GooglePlace googlePlace = 2;
 }
