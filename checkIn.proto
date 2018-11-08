@@ -8,13 +8,15 @@ message CheckIn {
 
     string attractionId = 2;
 
-    string userId = 3;
+    int64 created = 3;
+}
+
+message ListCheckInsForUserResponse {
+    repeated CheckIn checkIns = 1;
 }
 
 message CreateCheckInRequest {
     string attractionId = 1;
-
-    string userId = 2;
 }
 
 message RemoveCheckInRequest {
