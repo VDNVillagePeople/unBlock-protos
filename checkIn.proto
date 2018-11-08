@@ -8,7 +8,7 @@ message CheckIn {
 
     string attractionId = 2;
 
-    int64 created = 3;
+    int64 createdTime = 3;
 }
 
 message ListCheckInsForUserResponse {
